@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millennium_gallery/features/home/home.dart';
 
 class HomeView extends StatelessWidget {
@@ -6,13 +7,27 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: CustomScrollView(
-        physics: BouncingScrollPhysics(),
-        slivers: [
-          HomeAppBar(),
-          CharacterList(),
-        ],
+    return Scaffold(
+      body: NotificationListener<ScrollNotification>(
+        onNotification: (ScrollNotification scrollInfo) {
+          final bloc = BlocProvider.of<HomeBloc>(context);
+
+          if (bloc.state is! HomeLoadingState) {
+            if (scrollInfo.metrics.extentAfter < 20) {
+              bloc.add(FetchDataEvent(page: bloc.state.page + 1));
+            }
+          }
+
+          return true;
+        },
+        child: const CustomScrollView(
+          physics: BouncingScrollPhysics(),
+          slivers: [
+            HomeAppBar(),
+            CharacterList(),
+            LoadingPage(),
+          ],
+        ),
       ),
     );
   }

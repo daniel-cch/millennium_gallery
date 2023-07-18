@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millennium_gallery/features/home/home.dart';
+import 'package:millennium_gallery/shared/shared.dart';
 
 class CharacterList extends StatelessWidget {
   const CharacterList({Key? key}) : super(key: key);
@@ -20,10 +21,12 @@ class CharacterList extends StatelessWidget {
         );
       }
 
+      final filteredList = Utilities.filterList(state.filter, state.characters);
+
       return SliverList(
         delegate: SliverChildBuilderDelegate(
           (context, index) {
-            final character = state.characters[index];
+            final character = filteredList[index];
 
             return Padding(
               padding: const EdgeInsets.all(8.0),
@@ -36,8 +39,7 @@ class CharacterList extends StatelessWidget {
               ),
             );
           },
-          // 40 list items
-          childCount: state.characters.length,
+          childCount: filteredList.length,
         ),
       );
     });

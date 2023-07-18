@@ -25,14 +25,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   Future<void> _fetchDataEvent(FetchDataEvent event, Emitter emit) async {
     emit(
       HomeLoadingState(
-        page: state.page,
+        page: event.page,
         filter: state.filter,
         characters: state.characters,
         films: state.films,
       ),
     );
 
-    final characters = await _repository.getCharacters(page: state.page);
+    final characters = await _repository.getCharacters(page: event.page);
     final films = await _repository.getFilms();
 
     final characterFold = characters.fold((error) => error, (r) => r);
@@ -41,7 +41,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     if (characterFold is AppError || filmsFold is AppError) {
       emit(
         HomeErrorState(
-          page: state.page,
+          page: event.page - 1,
           filter: state.filter,
           characters: state.characters,
           films: state.films,
@@ -51,11 +51,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       return;
     }
 
+    List<Character> chars = [];
+    chars.addAll(state.characters);
+    chars.addAll(characterFold as List<Character>);
+
     emit(
       HomeLoadedState(
-        page: state.page,
+        page: event.page,
         filter: state.filter,
-        characters: characterFold as List<Character>,
+        characters: chars,
         films: filmsFold as List<Film>,
       ),
     );
