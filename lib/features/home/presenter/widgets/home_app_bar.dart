@@ -20,16 +20,7 @@ class HomeAppBar extends StatelessWidget {
           constraints: const BoxConstraints(
             maxHeight: 40,
           ),
-          child: ListView.builder(
-            primary: false,
-            shrinkWrap: true,
-            physics: const BouncingScrollPhysics(),
-            scrollDirection: Axis.horizontal,
-            itemCount: 2,
-            itemBuilder: (context, index) {
-              return const CustomChip(title: "Masculino", selected: false);
-            },
-          ),
+          child: const FilterList(),
         ),
       ),
     );

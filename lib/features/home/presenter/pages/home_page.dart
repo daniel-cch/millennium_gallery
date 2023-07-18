@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:millennium_gallery/features/home/home.dart';
 
 class HomePage extends StatelessWidget {
@@ -6,28 +7,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomScrollView(
-        physics: const BouncingScrollPhysics(),
-        slivers: [
-          const HomeAppBar(),
-          SliverToBoxAdapter(
-            child: ListView.builder(
-              shrinkWrap: true,
-              primary: false,
-              itemBuilder: (context, index) {
-                return Container(
-                  height: 50,
-                  child: Center(
-                    child: Text(index.toString()),
-                  ),
-                );
-              },
-              itemCount: 100,
-            ),
-          )
-        ],
-      ),
+    return BlocProvider(
+      create: (context) => HomeBloc(),
+      child: const HomeView(),
     );
   }
 }
