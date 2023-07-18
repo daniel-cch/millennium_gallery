@@ -35,8 +35,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     final characters = await _repository.getCharacters(page: event.page);
     final films = await _repository.getFilms();
 
-    final characterFold = characters.fold((error) => error, (r) => r);
-    final filmsFold = films.fold((error) => error, (r) => r);
+    final characterFold = characters.fold(
+      (error) => error,
+      (characters) => characters,
+    );
+    final filmsFold = films.fold(
+      (error) => error,
+      (films) => films,
+    );
 
     if (characterFold is AppError || filmsFold is AppError) {
       emit(
