@@ -48,35 +48,37 @@ class CharacterCard extends StatelessWidget {
             scale: 5,
           ),
         ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              character.name,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: const TextStyle(
-                fontSize: 18,
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                character.name,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  fontSize: 18,
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-            const Text('Gender'),
-            Text(
-              character.gender,
-              maxLines: 1,
-              style: const TextStyle(
-                fontSize: 16,
+              const SizedBox(height: 20),
+              const Text('Gender'),
+              Text(
+                character.gender,
+                maxLines: 1,
+                style: const TextStyle(
+                  fontSize: 16,
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-            const Text('Films'),
-            Text(
-              character.films.length.toString(),
-              style: const TextStyle(
-                fontSize: 18,
+              const SizedBox(height: 20),
+              const Text('Films'),
+              Text(
+                character.films.length.toString(),
+                style: const TextStyle(
+                  fontSize: 18,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

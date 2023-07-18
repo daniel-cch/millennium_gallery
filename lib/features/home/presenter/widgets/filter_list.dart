@@ -9,6 +9,10 @@ class FilterList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
+        if (state.characters.isEmpty) {
+          return const SizedBox();
+        }
+
         return ListView.builder(
           primary: false,
           shrinkWrap: true,
