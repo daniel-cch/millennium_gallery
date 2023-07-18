@@ -6,26 +6,12 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: CustomScrollView(
-        physics: const BouncingScrollPhysics(),
+        physics: BouncingScrollPhysics(),
         slivers: [
-          const HomeAppBar(),
-          SliverToBoxAdapter(
-            child: ListView.builder(
-              shrinkWrap: true,
-              primary: false,
-              itemBuilder: (context, index) {
-                return Container(
-                  height: 50,
-                  child: Center(
-                    child: Text(index.toString()),
-                  ),
-                );
-              },
-              itemCount: 100,
-            ),
-          )
+          HomeAppBar(),
+          CharacterList(),
         ],
       ),
     );
