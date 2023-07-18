@@ -112,9 +112,11 @@ packages:
   galactic_compass:
     dependency: "direct main"
     description:
-      path: "../galactic_compass"
-      relative: true
-    source: path
+      path: "."
+      ref: main
+      resolved-ref: "11bf48d9e079ee4493f3f161e85db7fb5ebae900"
+      url: "https://github.com/daniel-cch/galactic_compass"
+    source: git
     version: "1.0.0"
   http_parser:
     dependency: transitive

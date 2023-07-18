@@ -8,7 +8,8 @@ class HomeAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      pinned: true,
+      floating: true,
+      snap: true,
       flexibleSpace: const Center(
         child: CustomSpinner(),
       ),
