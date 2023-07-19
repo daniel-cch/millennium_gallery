@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:millennium_gallery/core/app_error.dart';
 import 'package:millennium_gallery/features/home/home.dart';
-import 'package:millennium_gallery/shared/app_error.dart';
 
 class ApiStarWars extends StarWarsRepository {
   final Dio _dio = Dio();

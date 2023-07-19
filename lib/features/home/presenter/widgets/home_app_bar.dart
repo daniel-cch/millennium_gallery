@@ -9,12 +9,11 @@ class HomeAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverAppBar(
       floating: true,
-      snap: true,
       flexibleSpace: const Center(
         child: CustomSpinner(),
       ),
       centerTitle: true,
-      backgroundColor: Constants.appBarBackground,
+      backgroundColor: Constants.background,
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(90.0),
         child: ConstrainedBox(

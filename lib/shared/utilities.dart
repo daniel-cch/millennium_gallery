@@ -13,11 +13,11 @@ class Utilities {
   }
 
   static String getGender(CharacterFilters filters) {
-    if (filters == CharacterFilters.Masculino) {
+    if (filters == CharacterFilters.male) {
       return 'male';
     }
 
-    if (filters == CharacterFilters.Femenino) {
+    if (filters == CharacterFilters.female) {
       return 'female';
     }
 

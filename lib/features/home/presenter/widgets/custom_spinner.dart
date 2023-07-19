@@ -11,12 +11,18 @@ class CustomSpinner extends StatefulWidget {
 
 class _CustomSpinnerState extends State<CustomSpinner>
     with TickerProviderStateMixin {
-  late final AnimationController _controller = AnimationController(
-    duration: const Duration(milliseconds: 0),
-    vsync: this,
-    lowerBound: 0.0,
-    upperBound: 360.0,
-  );
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 0),
+      vsync: this,
+      lowerBound: 0.0,
+      upperBound: 360.0,
+    );
+  }
 
   @override
   void dispose() {

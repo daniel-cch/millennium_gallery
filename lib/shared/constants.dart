@@ -7,5 +7,5 @@ class Constants {
   static const String empirePNG = 'assets/images/empire.png';
 
   // Colors
-  static const Color appBarBackground = Color(0xff212121);
+  static const Color background = Color(0xff212121);
 }

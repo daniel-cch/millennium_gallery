@@ -31,7 +31,7 @@ class FilterList extends StatelessWidget {
                 );
               },
               child: CustomChip(
-                title: filter.name,
+                filter: filter,
                 selected: _isSelected(filter, state),
               ),
             );

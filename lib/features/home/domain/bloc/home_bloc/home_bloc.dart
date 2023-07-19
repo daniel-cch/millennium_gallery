@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:millennium_gallery/core/core.dart';
 import 'package:millennium_gallery/features/home/home.dart';
-import 'package:millennium_gallery/shared/shared.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';

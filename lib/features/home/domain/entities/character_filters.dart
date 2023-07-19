@@ -1,1 +1,1 @@
-enum CharacterFilters { Masculino, Femenino }
+enum CharacterFilters { male, female }

@@ -12,7 +12,7 @@ class LoadingPage extends StatelessWidget {
         if (state is HomeLoadingState && state.characters.isNotEmpty) {
           return const SliverToBoxAdapter(
             child: Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: EdgeInsets.all(20.0),
               child: Center(
                 child: SizedBox(
                   height: 30,

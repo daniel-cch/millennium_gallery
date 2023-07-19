@@ -18,6 +18,7 @@ class CharacterCard extends StatelessWidget {
       onTap: () {
         showModalBottomSheet(
           context: context,
+          backgroundColor: Constants.background,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(25),
@@ -40,7 +41,7 @@ class CharacterCard extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
-          border: Border.all(color: Constants.appBarBackground),
+          border: Border.all(color: Colors.white, width: 0.5),
           image: const DecorationImage(
             image: AssetImage(Constants.empirePNG),
             alignment: Alignment.bottomLeft,
@@ -56,25 +57,35 @@ class CharacterCard extends StatelessWidget {
                 character.name,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                  fontSize: 18,
-                ),
+                style: const TextStyle(fontSize: 18, color: Colors.white),
               ),
               const SizedBox(height: 20),
-              const Text('Gender'),
+              const Text(
+                'Gender',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
               Text(
                 character.gender,
                 maxLines: 1,
                 style: const TextStyle(
                   fontSize: 16,
+                  color: Colors.white,
                 ),
               ),
               const SizedBox(height: 20),
-              const Text('Films'),
+              const Text(
+                'Films',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
               Text(
                 character.films.length.toString(),
                 style: const TextStyle(
                   fontSize: 18,
+                  color: Colors.white,
                 ),
               ),
             ],

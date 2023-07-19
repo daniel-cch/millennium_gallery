@@ -114,7 +114,7 @@ packages:
     description:
       path: "."
       ref: main
-      resolved-ref: "11bf48d9e079ee4493f3f161e85db7fb5ebae900"
+      resolved-ref: "3e0cc8963cce880dedaada143ce029c5e5320d30"
       url: "https://github.com/daniel-cch/galactic_compass"
     source: git
     version: "1.0.0"
