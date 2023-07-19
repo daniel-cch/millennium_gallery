@@ -1,6 +1,7 @@
+import 'package:equatable/equatable.dart';
 import 'package:millennium_gallery/features/home/home.dart';
 
-class FilmModel extends Film {
+class FilmModel extends Film with EquatableMixin {
   const FilmModel({
     required int episodeId,
     required String title,
@@ -13,4 +14,10 @@ class FilmModel extends Film {
         episodeId: json['episode_id'] ?? 0,
         title: json['title'] ?? '',
       );
+
+  @override
+  List<Object?> get props => [
+        episodeId,
+        title,
+      ];
 }

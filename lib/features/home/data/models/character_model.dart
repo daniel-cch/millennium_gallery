@@ -1,7 +1,8 @@
+import 'package:equatable/equatable.dart';
 import 'package:millennium_gallery/features/home/home.dart';
 import 'package:millennium_gallery/shared/shared.dart';
 
-class CharacterModel extends Character {
+class CharacterModel extends Character with EquatableMixin {
   const CharacterModel({
     required String name,
     required String gender,
@@ -23,4 +24,11 @@ class CharacterModel extends Character {
       films: films,
     );
   }
+
+  @override
+  List<Object?> get props => [
+        name,
+        gender,
+        films,
+      ];
 }

@@ -7,8 +7,9 @@ part 'home_event.dart';
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  HomeBloc()
-      : super(
+  HomeBloc({required StarWarsRepository starWarsRepository})
+      : _repository = starWarsRepository,
+        super(
           const HomeInitialState(
             page: 1,
             filter: null,
@@ -20,9 +21,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<FetchDataEvent>(_fetchDataEvent);
   }
 
-  final StarWarsRepository _repository = ApiStarWars();
+  final StarWarsRepository _repository;
 
-  Future<void> _fetchDataEvent(FetchDataEvent event, Emitter emit) async {
+  Future<void> _fetchDataEvent(
+    FetchDataEvent event,
+    Emitter emit,
+  ) async {
     emit(
       HomeLoadingState(
         page: event.page,

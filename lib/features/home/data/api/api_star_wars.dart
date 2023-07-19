@@ -4,7 +4,9 @@ import 'package:millennium_gallery/core/app_error.dart';
 import 'package:millennium_gallery/features/home/home.dart';
 
 class ApiStarWars extends StarWarsRepository {
-  final Dio _dio = Dio();
+  final Dio dio;
+
+  ApiStarWars({required this.dio});
 
   @override
   Future<Either<AppError, List<Character>>> getCharacters({
@@ -13,7 +15,7 @@ class ApiStarWars extends StarWarsRepository {
     final url = 'https://swapi.dev/api/people/?page=$page';
 
     try {
-      final response = await _dio.get(url);
+      final response = await dio.get(url);
       var characters = List.from(response.data['results'])
           .map((item) => CharacterModel.fromJson(item))
           .toList();
@@ -31,7 +33,7 @@ class ApiStarWars extends StarWarsRepository {
     const url = 'https://swapi.dev/api/films/';
 
     try {
-      final response = await _dio.get(url);
+      final response = await dio.get(url);
       var films = List.from(response.data['results'])
           .map((item) => FilmModel.fromJson(item))
           .toList();
