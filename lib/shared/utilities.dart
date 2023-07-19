@@ -13,15 +13,11 @@ class Utilities {
   }
 
   static String getGender(CharacterFilters filters) {
-    if (filters == CharacterFilters.male) {
-      return 'male';
-    }
-
     if (filters == CharacterFilters.female) {
       return 'female';
     }
 
-    return '';
+    return 'male';
   }
 
   static List<Character> filterList(
